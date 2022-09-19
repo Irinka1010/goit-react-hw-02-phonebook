@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import ContactForm from './ContactForm';
-import ContactsList from './ContactsList';
-import Filter from './Filter';
-
+import ContactForm from 'components/ContactForm/ContactForm';
+import ContactsList from 'components/ContactsList/ContactsList';
+import Filter from 'components/Filter/Filter';
+import css from 'components/Phonebook/Phonebook.module.css';
 export default class Phonebook extends Component {
   state = {
     contacts: [
@@ -70,12 +70,12 @@ export default class Phonebook extends Component {
     const contacts = this.getFilteredContacts();
     return (
       <>
-        <div className="block">
-          <h2>Phonebook</h2>
+        <div className={css.formContact}>
+          <h2 className={css.title}>Phonebook</h2>
           <ContactForm onSubmit={addContacts} />
         </div>
-        <div className="block">
-          <h2>Contacts</h2>
+        <div className={css.contacts}>
+          <h2 className={css.title}>Contacts</h2>
           <Filter onChange={hendelChenge} value={this.state.filter} />
           <ContactsList items={contacts} removeContacts={removeContacts} />
         </div>

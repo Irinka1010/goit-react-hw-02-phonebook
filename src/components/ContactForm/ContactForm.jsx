@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-
+import css from 'components/ContactForm/ContactForm.module.css';
 export default class ContactForm extends Component {
   state = {
     name: '',
@@ -52,7 +52,9 @@ export default class ContactForm extends Component {
           onChange={handleChange}
         />
 
-        <button type="submit">Add contact</button>
+        <button className={css.button} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }
