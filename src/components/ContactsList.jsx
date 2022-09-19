@@ -1,9 +1,11 @@
-// import { nanoid } from 'nanoid';
-export default function ContactsList({ items }) {
-  const elements = items.map(({ name, number }) => {
+export default function ContactsList({ items, removeContacts }) {
+  const elements = items.map(({ name, number, id }) => {
     return (
-      <li>
-        {name} : {number}
+      <li key={id}>
+        {name} : {number}{' '}
+        <button type="button" onClick={() => removeContacts(id)}>
+          Delete
+        </button>
       </li>
     );
   });
